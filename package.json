@@ -1,21 +1,40 @@
 {
   "name": "suiteemprende",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "version": "1.0.0",
   "type": "module",
+  "description": "Suite de herramientas gratuitas para emprendedores",
+  "author": "Ginter Donato <ginterdonatop@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://dongeeo87.github.io/SuiteEmprende",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DonGeeo87/SuiteEmprende.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
+    "browser-image-compression": "^2.0.2",
+    "jspdf": "^4.0.0",
+    "jspdf-autotable": "^5.0.7",
+    "pdf-lib": "^1.17.1",
+    "prop-types": "^15.8.1",
+    "qrcode.react": "^3.2.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
-    "react-router-dom": "^7.12.0"
+    "react-easy-crop": "^5.5.6",
+    "react-pdf": "^10.3.0",
+    "react-router-dom": "^7.12.0",
+    "react-signature-canvas": "^1.1.0-alpha.2"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
     "@vitejs/plugin-react": "^5.0.0",
+    "gh-pages": "^6.3.0",
     "typescript": "~5.8.2",
     "vite": "^6.2.0"
   }

@@ -3,16 +3,18 @@ import { Link } from 'react-router-dom';
 import { Tool } from '../types';
 
 const tools: Tool[] = [
-  { id: 'pdf', icon: '📝', title: 'Rellenar PDF', description: 'Completa formularios y postulaciones sin imprimir.', path: '/tools/rellenador-pdf', isReady: false },
-  { id: 'quote', icon: '📄', title: 'Cotizador Express', description: 'Crea presupuestos formales en segundos.', path: '/tools/cotizador', isReady: false },
-  { id: 'sign', icon: '✍️', title: 'Firma Digital', description: 'Dibuja tu firma y descárgala sin fondo.', path: '/tools/firma', isReady: false },
-  { id: 'whatsapp', icon: '💬', title: 'Link WhatsApp', description: 'Genera enlaces directos y códigos QR.', path: '/tools/whatsapp', isReady: false },
+  { id: 'pdf', icon: '📝', title: 'Rellenar PDF', description: 'Completa formularios y postulaciones sin imprimir.', path: '/tools/rellenador-pdf', isReady: true },
+  { id: 'quote', icon: '📄', title: 'Cotizador Express', description: 'Crea presupuestos formales en segundos.', path: '/tools/cotizador', isReady: true },
+  { id: 'sign', icon: '✍️', title: 'Firma Digital', description: 'Dibuja tu firma y descárgala sin fondo.', path: '/tools/firma', isReady: true },
+  { id: 'whatsapp', icon: '💬', title: 'Link WhatsApp', description: 'Genera enlaces directos y códigos QR.', path: '/tools/whatsapp', isReady: true },
   { id: 'margin', icon: '💰', title: 'Calculadora Margen', description: 'Calcula el precio de venta exacto para ganar dinero.', path: '/tools/margen', isReady: true },
-  { id: 'discount', icon: '🏷️', title: 'Calculadora Ofertas', description: 'Define descuentos sin perder dinero.', path: '/tools/descuentos', isReady: false },
-  { id: 'compress', icon: '🖼️', title: 'Comprimir Fotos', description: 'Reduce el peso de tus imágenes para la web.', path: '/tools/comprimir', isReady: false },
-  { id: 'watermark', icon: '💧', title: 'Marca de Agua', description: 'Protege las fotos de tus productos.', path: '/tools/marca-agua', isReady: false },
-  { id: 'crop', icon: '✂️', title: 'Recortar para Redes', description: 'Ajusta tus fotos a formato Historia o Post.', path: '/tools/recortar', isReady: false },
-  { id: 'pass', icon: '🔐', title: 'Generar Claves', description: 'Crea contraseñas seguras y aleatorias.', path: '/tools/passwords', isReady: true },
+  { id: 'discount', icon: '🏷️', title: 'Calculadora Ofertas', description: 'Define descuentos sin perder dinero.', path: '/tools/descuentos', isReady: true },
+  { id: 'compress', icon: '🖼️', title: 'Comprimir Fotos', description: 'Reduce el peso de tus imágenes para la web.', path: '/tools/comprimir', isReady: true },
+  { id: 'watermark', icon: '💧', title: 'Marca de Agua', description: 'Protege las fotos de tus productos.', path: '/tools/marca-agua', isReady: true },
+  { id: 'crop', icon: '✂️', title: 'Recortar para Redes', description: 'Ajusta tus fotos a formato Historia o Post.', path: '/tools/recortar', isReady: true },
+  { id: 'pass', icon: '🔐', title: 'Generar Claves', description: 'Crea contraseñas seguras y aleatorias.', path: '/tools/password', isReady: true },
+  { id: 'pricing', icon: '🏭', title: 'Precio de Venta', description: 'Calcula precios para fabricantes y revendedores.', path: '/tools/precio-venta', isReady: true },
+  { id: 'breakeven', icon: '📊', title: 'Punto de Equilibrio', description: 'Descubre cuánto necesitas vender para no perder.', path: '/tools/punto-equilibrio', isReady: true },
 ];
 
 const Dashboard: React.FC = () => {
@@ -30,8 +32,8 @@ const Dashboard: React.FC = () => {
             to={tool.isReady ? tool.path : '#'}
             className={`
               bg-white p-8 rounded-xl flex flex-col items-center text-center transition-all duration-200 border border-transparent
-              ${tool.isReady 
-                ? 'hover:-translate-y-1 hover:shadow-lg hover:border-primary cursor-pointer' 
+              ${tool.isReady
+                ? 'hover:-translate-y-1 hover:shadow-lg hover:border-primary cursor-pointer'
                 : 'opacity-60 cursor-not-allowed hover:border-gray-300 relative'
               }
             `}
