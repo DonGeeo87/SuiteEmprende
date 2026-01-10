@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dongeeo87.github.io/SuiteEmprende/sitemap.xml

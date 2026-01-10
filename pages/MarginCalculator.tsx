@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import ToolLayout from '../components/ToolLayout';
 
 const MarginCalculator: React.FC = () => {
   const [cost, setCost] = useState<number | ''>('');
@@ -25,21 +25,15 @@ const MarginCalculator: React.FC = () => {
   }, [cost, margin]);
 
   return (
-    <div className="max-w-3xl mx-auto">
-       <div className="mb-8">
-        <Link to="/" className="text-primary hover:underline font-medium mb-4 inline-block">&larr; Volver al inicio</Link>
-        <h1 className="text-3xl font-bold text-dark flex items-center gap-3">
-          💰 Calculadora de Margen
-        </h1>
-        <p className="text-gray-500 mt-2">Calcula el precio de venta real basado en el margen deseado.</p>
-      </div>
-
+    <ToolLayout
+      title="Calculadora de Margen"
+      description="Calcula el precio de venta real basado en el margen de ganancia que deseas obtener."
+      tip="El margen se calcula sobre el precio de venta final. Si quieres ganar un 30% del precio total, esta es tu herramienta."
+    >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Input Section */}
-        <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-          <h2 className="text-xl font-bold mb-6 text-gray-800">Tus Datos</h2>
-          
-          <div className="mb-6">
+        <div className="space-y-6">
+          <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">
               Costo del Producto ($)
             </label>
@@ -52,7 +46,7 @@ const MarginCalculator: React.FC = () => {
             />
           </div>
 
-          <div className="mb-6">
+          <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">
               Margen de Ganancia Deseado (%)
             </label>
@@ -71,7 +65,7 @@ const MarginCalculator: React.FC = () => {
         </div>
 
         {/* Results Section */}
-        <div className="bg-dark text-white p-6 rounded-xl shadow-lg flex flex-col justify-center">
+        <div className="bg-dark text-white p-8 rounded-xl shadow-lg flex flex-col justify-center">
           <h2 className="text-xl font-bold mb-6 opacity-90">Resultados</h2>
 
           <div className="mb-8">
@@ -89,22 +83,19 @@ const MarginCalculator: React.FC = () => {
                   +${profit.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </div>
               </div>
-              <div className="text-right">
-                <p className="text-xs text-gray-400">Sobre el costo</p>
-              </div>
             </div>
           </div>
         </div>
       </div>
 
-       <div className="mt-8 bg-white p-6 rounded-lg border border-gray-200">
-         <h3 className="font-bold text-dark mb-2">¿Por qué usar esta fórmula?</h3>
-         <p className="text-sm text-gray-600">
-           Muchos emprendedores cometen el error de simplemente sumar un porcentaje al costo (Markup). 
-           Sin embargo, el <strong>Margen</strong> se calcula sobre el precio final. Si quieres que de cada $100 que vendes, te queden $30 libres, debes usar esta calculadora, no una suma simple.
-         </p>
-       </div>
-    </div>
+      <div className="mt-12 bg-gray-50 p-6 rounded-lg border border-gray-100">
+        <h3 className="font-bold text-dark mb-2">¿Por qué usar esta fórmula?</h3>
+        <p className="text-sm text-gray-600">
+          Muchos emprendedores cometen el error de simplemente sumar un porcentaje al costo (Markup).
+          Sin embargo, el <strong>Margen</strong> se calcula sobre el precio final. Si quieres que de cada $100 que vendes, te queden $30 libres, debes usar esta calculadora, no una suma simple.
+        </p>
+      </div>
+    </ToolLayout>
   );
 };
 

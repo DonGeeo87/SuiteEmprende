@@ -1,5 +1,6 @@
 import React from 'react';
 import { HashRouter as Router, Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Dashboard from './pages/Dashboard';
 import PasswordGenerator from './pages/PasswordGenerator';
 import MarginCalculator from './pages/MarginCalculator';
@@ -48,32 +49,37 @@ const ScrollToTop = () => {
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-grow max-w-6xl mx-auto w-full p-4 mt-8">
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/tools/password" element={<PasswordGenerator />} />
-            <Route path="/tools/margen" element={<MarginCalculator />} />
-            <Route path="/tools/whatsapp" element={<WhatsAppLink />} />
-            <Route path="/tools/descuentos" element={<DiscountCalculator />} />
-            <Route path="/tools/comprimir" element={<ImageCompressor />} />
-            <Route path="/tools/recortar" element={<ImageCropper />} />
-            <Route path="/tools/marca-agua" element={<Watermark />} />
-            <Route path="/tools/firma" element={<SignatureGenerator />} />
-            <Route path="/tools/cotizador" element={<QuoteGenerator />} />
-            <Route path="/tools/rellenador-pdf" element={<PDFEditor />} />
-            <Route path="/tools/precio-venta" element={<PricingCalculator />} />
-            <Route path="/tools/punto-equilibrio" element={<BreakEvenCalculator />} />
-            {/* Placeholder routes for other tools - they will redirect to Home for now or show a "Coming Soon" if we built a specific page */}
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <Helmet>
+          <title>SuiteEmprende | Herramientas Digitales para Emprendedores</title>
+          <meta name="description" content="Colección de herramientas gratuitas, privadas y seguras para potenciar tu emprendimiento. Sin registros ni descargas." />
+        </Helmet>
+        <ScrollToTop />
+        <div className="min-h-screen flex flex-col">
+          <Header />
+          <main className="flex-grow max-w-6xl mx-auto w-full p-4 mt-8">
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/tools/password" element={<PasswordGenerator />} />
+              <Route path="/tools/margen" element={<MarginCalculator />} />
+              <Route path="/tools/whatsapp" element={<WhatsAppLink />} />
+              <Route path="/tools/descuentos" element={<DiscountCalculator />} />
+              <Route path="/tools/comprimir" element={<ImageCompressor />} />
+              <Route path="/tools/recortar" element={<ImageCropper />} />
+              <Route path="/tools/marca-agua" element={<Watermark />} />
+              <Route path="/tools/firma" element={<SignatureGenerator />} />
+              <Route path="/tools/cotizador" element={<QuoteGenerator />} />
+              <Route path="/tools/rellenador-pdf" element={<PDFEditor />} />
+              <Route path="/tools/precio-venta" element={<PricingCalculator />} />
+              <Route path="/tools/punto-equilibrio" element={<BreakEvenCalculator />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </HelmetProvider>
   );
 };
 

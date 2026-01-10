@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Tool } from '../types';
+import SEO from '../components/SEO';
 
 const tools: Tool[] = [
   { id: 'pdf', icon: '📝', title: 'Rellenar PDF', description: 'Completa formularios y postulaciones sin imprimir.', path: '/tools/rellenador-pdf', isReady: true },
@@ -20,6 +21,11 @@ const tools: Tool[] = [
 const Dashboard: React.FC = () => {
   return (
     <div>
+      <SEO
+        title="Inicio"
+        description="Suite de herramientas digitales gratuitas para emprendedores: firma digital, calculadora de márgenes, compresor de imágenes y más."
+        url="/"
+      />
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-dark mb-4">Todo lo que necesitas para vender más</h1>
         <p className="text-xl text-gray-500">Herramientas simples que funcionan en tu navegador. Privacidad total.</p>

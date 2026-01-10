@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import SEO from './SEO';
 
 interface ToolLayoutProps {
   title: string;
@@ -9,8 +10,15 @@ interface ToolLayoutProps {
 }
 
 const ToolLayout: React.FC<ToolLayoutProps> = ({ title, description, children, tip }) => {
+  const location = useLocation();
+
   return (
     <div className="max-w-4xl mx-auto">
+      <SEO
+        title={title}
+        description={description}
+        url={location.pathname}
+      />
       {/* Breadcrumb */}
       <nav className="mb-6 text-sm text-gray-500">
         <Link to="/" className="hover:text-primary transition-colors">
