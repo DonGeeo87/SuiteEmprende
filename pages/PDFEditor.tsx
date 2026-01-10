@@ -7,11 +7,8 @@ import FileUpload from '../components/FileUpload';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
 
-// Configure worker for react-pdf (Vite compatible)
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-    'pdfjs-dist/build/pdf.worker.min.mjs',
-    import.meta.url,
-).toString();
+// Configure worker for react-pdf (Standard Public Path)
+pdfjs.GlobalWorkerOptions.workerSrc = '/SuiteEmprende/pdf.worker.min.mjs';
 
 interface Annotation {
     id: string;
